@@ -1,0 +1,30 @@
+week 3 questions:
+1)what is <!DOCTYPE html>
+	a)A tag like the others used in the head for meta data
+	B)Lets the browser know what kind of file it is
+	c)used to link external css file to html
+	d)A note to the developer so they know it's an html file quicker
+
+2)what's the correct way to include an external css file.
+	a)<metadata include="main.css" type="css"/>
+	b)<a href="main.css" source="./main.css"/>
+	C)<link rel="stylesheet" href="main.css">
+	d)<link rel="css/file" href="styles.css">
+
+3)How do you write javascript directly in html file?
+	a)You can't
+	b)<js>code...</js>
+	c)<code>code...</code>
+	D)<script>code...</script>
+
+4)what does the z-index do?
+	a)sets css priority manually
+	b)reverses order of content to right to left
+	C)set content positioning from top to bottom on z axis
+	d)allows content to render as 3D for images instead of 2D
+
+5)What are the Minimum and Maximum values for css Opacity
+	A)0 to 1
+	b)-10 to 10
+	c)1 to 100
+	d)1 to 10
