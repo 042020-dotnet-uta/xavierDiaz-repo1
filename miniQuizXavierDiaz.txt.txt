@@ -1,4 +1,4 @@
-week 3 questions:
+week 3 questions: (CAPITAL letter is the correct answer)
 1)what is <!DOCTYPE html>
 	a)A tag like the others used in the head for meta data
 	B)Lets the browser know what kind of file it is
