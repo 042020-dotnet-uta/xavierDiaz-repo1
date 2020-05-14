@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: 'ubuntu-latest'
+pool: vmImage:'ubuntu-latest'
 #watch for pr's
 pr: 'none'
 #group sequential actions
