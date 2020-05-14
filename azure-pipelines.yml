@@ -17,6 +17,7 @@ stages:
       - job: 'build'
         steps:
           - script: cd ProjectOne
+          - script: cd ProjectOne
           - script: ls
           - script: dotnet build
 
