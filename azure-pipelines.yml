@@ -16,7 +16,8 @@ stages:
     jobs:
       - job: 'build'
         steps:
-          - script: dotnet build'ProjectOne\ProjectOne.csproj'
+          - script: cd ProjectOne\ProjectOne
+          - script: dotnet build
 
       - job: 'test'
         dependsOn: 'build'
