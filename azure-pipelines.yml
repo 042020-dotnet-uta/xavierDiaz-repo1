@@ -18,15 +18,11 @@ stages:
           - script: 'dotnet build'
           - script: echo hey there
 
-  - stage: 
-    jobs:
       - job: 'test'
         dependsOn: 'build'
         steps:
           - script: 'dotnet test'
 
-  - stage: 
-    jobs:
       - job: 'publish'
         dependsOn: 'test'
         steps:
