@@ -16,7 +16,7 @@ stages:
     jobs:
       - job: 'build'
         steps:
-          - script: dotnet build'xavierDiaz-repo1\ProjectOne.sln'
+          - script: dotnet build'.\ProjectOne.sln'
           - script: echo hey there
 
       - job: 'test'
