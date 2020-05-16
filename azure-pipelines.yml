@@ -5,15 +5,26 @@
 #what branch are we watching
 trigger:
 - master
-#type of vm that will be created
+
 pool:
   vmImage: 'ubuntu-latest'
-#sequential steps to build, run deploy etc.. the app
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+#watch for pr's
+pr: 'none'
+#group sequential actions
+stages:
+  - stage:
+    jobs:
+      - job: 'build'
+        steps:
+          - script: dotnet build 'ProjectOne\ProjectOne\ProjectOne.csproj'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+      - job: 'test'
+        dependsOn: 'build'
+        steps:
+          - script: 'dotnet test'
+
+      - job: 'publish'
+        dependsOn: 'test'
+        steps:
+          - script: 'dotnet publish'
+
