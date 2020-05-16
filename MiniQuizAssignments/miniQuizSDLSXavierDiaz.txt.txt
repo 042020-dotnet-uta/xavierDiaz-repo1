@@ -1,0 +1,27 @@
+soft dev life cycle:
+1)Which is true about the process of making points for scrum user stories?
+	a) you should go from 1 to 100
+	b) its best that the points are weighted on basic incremental scale
+	c) You can always understand how dificult a task is before doing it so use 1->10
+	D) It's difficult to know how hard a task might be so its better to score using something like 
+		fibonachi sequence or T-shirt size
+2)durring a scrum meeting how many questions are part of your adgenda when you stand?
+	a)4
+	B)3
+	c)2
+	d)5
+3)What is true of the scrum Product owner?
+	A)They must have a vision of what to build, and convey that to the team
+	b)They are your boss and what they say goes
+	c)The product is always their property
+	d)communication is of little importance for them
+4)What is an agile spike?
+	a)When you underestimate the work load in early sprints and now have a ton to do
+	b)the term for getting a lot done in a short time on the burndown chart
+	C)A story that cannot be estimated until a development team runs a time-boxed investigation
+	d)An unusually large user story requiring more than one person to work on it
+5)What is False of a burn down chart
+	A)represents time that wasn't used properly
+	b)shows how much work is left of a project
+	c)Is different from a burn up chart
+	d)Can show either user story points or hours spent on project

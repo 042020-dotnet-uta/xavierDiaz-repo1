@@ -18,11 +18,58 @@ namespace ProjectOne.Controllers
         {
             _context = context;
         }
+        //idea from stack overflow
+        //How to open a dialog box after submit a form to show posted successfully - asp.net MVC
+        public string SuccessMessage
+        {
+            get { return TempData["SuccessMessage"] as string; }
+            set { TempData["SuccessMessage"] = value; }
+        }
 
         // GET: Orders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Orders.ToListAsync());
+            var orders = from o in _context.Orders
+                         select o;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                orders = orders.Where(s => s.SoldItems.Contains(searchString));
+            }
+
+            return View(await orders.ToListAsync());
+        }
+        public async Task<IActionResult> SearchCustomer(int custID = -1)
+        {
+            var orders = from o in _context.Orders
+                         select o;
+            if (custID != -1)
+            {
+                orders = orders.Where(s => s.CustomerID == custID);
+            }
+
+            return View(await orders.ToListAsync());
+        }
+        public async Task<IActionResult> SearchStore(int storeID = -1)
+        {
+            var orders = from o in _context.Orders
+                         select o;
+            if (storeID != -1)
+            {
+                orders = orders.Where(s => s.StoreID == storeID);
+            }
+
+            return View(await orders.ToListAsync());
+        }
+        public async Task<IActionResult> SearchOrdID(int ordID = -1)
+        {
+            var orders = from o in _context.Orders
+                         select o;
+            if (ordID != -1)
+            {
+                orders = orders.Where(s => s.ID == ordID);
+            }
+
+            return View(await orders.ToListAsync());
         }
         //can overload this later for different searches?
         // GET: Orders/Details/5
@@ -60,7 +107,9 @@ namespace ProjectOne.Controllers
             {
                 _context.Add(order);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                SuccessMessage = "Order Placed";
+                return RedirectToAction("Create");
+                //return RedirectToAction(nameof(Index));
             }
             return View(order);
         }

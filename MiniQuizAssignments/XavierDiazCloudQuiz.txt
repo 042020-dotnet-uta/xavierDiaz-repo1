@@ -1,0 +1,27 @@
+1)which of these isn't a service model
+	a)Function as a service
+	b)Mobile backend as a service
+	c)software as a service
+	d)computing as a service	correct
+2)which isn't a real deployment method
+	a)semi cloud	correct
+	b)polycloud
+	c)big data cloud
+	d)volunteer cloud
+3)What's not true of serverless computing
+	a)the cloud provider fully manages starting and stopping virtual machines as
+	  necessary to serve requests
+	b)as the name suggests servers are not used	correct
+	c) the business or person that owns the system does not have to purchase, rent or 
+	   provision servers or virtual machines for the back-end code to run on
+	d)requests are billed by an abstract measure of the resources required to satisfy the request
+4)How many types of distributed coulds are there?
+	a)1
+	b)2	correct
+	c)3
+	d)4
+5)which isn't an encompassed area of cloud engineering
+	a)web
+	b)risk
+	c)quantity
+	d)security
