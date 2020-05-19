@@ -9,7 +9,7 @@
 <h4>Order</h4>
 @if (TempData["SuccessMessage"] != null)
 {
-    <p style="color: springgreen">Order has been placed, if your done click "Go Back"</p>
+    <p style="color: springgreen">Order is ready! You have @TempData["OrderSize"] items pending. To place order select "Go Back"</p>
     <p style="color: cornflowerblue">Otherwise add another order</p>
 }
 <hr />
@@ -45,7 +45,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Go Back</a>
+    <a asp-action="addOrders">Go Back</a>
 </div>
 
 @section Scripts {

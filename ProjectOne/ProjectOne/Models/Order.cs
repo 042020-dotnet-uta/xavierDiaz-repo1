@@ -78,6 +78,19 @@ namespace ProjectOne.Models
 				_SoldItems = value;
 			}
 		}
+		/*private int _Quantity;// --- how many to order
+		[Required]
+		public int Quantity
+		{
+			get
+			{
+				return _Quantity;
+			}
+			set
+			{
+				_Quantity = value;
+			}
+		}*/
 		public Order()
 		{
 		}

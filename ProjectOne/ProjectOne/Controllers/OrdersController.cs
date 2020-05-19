@@ -18,12 +18,18 @@ namespace ProjectOne.Controllers
         {
             _context = context;
         }
+        public static List<Order> Orders = new List<Order>();
         //idea from stack overflow
         //How to open a dialog box after submit a form to show posted successfully - asp.net MVC
         public string SuccessMessage
         {
             get { return TempData["SuccessMessage"] as string; }
             set { TempData["SuccessMessage"] = value; }
+        }
+        public string OrderSize
+        {
+            get { return TempData["OrderSize"] as string; }
+            set { TempData["SucessMessage"] = value; }
         }
 
         // GET: Orders
@@ -105,13 +111,26 @@ namespace ProjectOne.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(order);
-                await _context.SaveChangesAsync();
+                order.SellTime = DateTime.Now;
+                Orders.Add(order);
+                TempData["OrderSize"] = Orders.Count.ToString();
+                //_context.Add(order);
+                //await _context.SaveChangesAsync();
                 SuccessMessage = "Order Placed";
                 return RedirectToAction("Create");
                 //return RedirectToAction(nameof(Index));
             }
             return View(order);
+        }
+        public IActionResult addOrders()
+        {
+            foreach(var o in Orders)
+            {
+                _context.Add(o);
+            }
+            _context.SaveChanges();
+            Orders.Clear();
+            return RedirectToAction("Index");
         }
 
         // GET: Orders/Edit/5
