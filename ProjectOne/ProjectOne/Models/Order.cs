@@ -78,7 +78,7 @@ namespace ProjectOne.Models
 				_SoldItems = value;
 			}
 		}
-		/*private int _Quantity;// --- how many to order
+		private int _Quantity;// --- how many to order
 		[Required]
 		public int Quantity
 		{
@@ -90,7 +90,7 @@ namespace ProjectOne.Models
 			{
 				_Quantity = value;
 			}
-		}*/
+		}
 		public Order()
 		{
 		}

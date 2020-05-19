@@ -29,6 +29,9 @@ namespace ProjectOne.Migrations
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("SellTime")
                         .HasColumnType("datetime2");
 

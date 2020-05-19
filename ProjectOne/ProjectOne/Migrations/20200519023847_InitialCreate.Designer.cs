@@ -10,7 +10,7 @@ using ProjectOne.Data;
 namespace ProjectOne.Migrations
 {
     [DbContext(typeof(ProjectOneContext))]
-    [Migration("20200514005138_InitialCreate")]
+    [Migration("20200519023847_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,6 +29,9 @@ namespace ProjectOne.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CustomerID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SellTime")

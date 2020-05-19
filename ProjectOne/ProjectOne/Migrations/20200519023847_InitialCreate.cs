@@ -16,7 +16,8 @@ namespace ProjectOne.Migrations
                     StoreID = table.Column<int>(nullable: false),
                     CustomerID = table.Column<int>(nullable: false),
                     SellTime = table.Column<DateTime>(nullable: false),
-                    SoldItems = table.Column<string>(nullable: false)
+                    SoldItems = table.Column<string>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
