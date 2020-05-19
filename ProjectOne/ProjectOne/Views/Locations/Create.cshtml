@@ -1,0 +1,54 @@
+﻿@model ProjectOne.Models.Location
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Location</h4>
+@if ((string)TempData["SuccessMessage"] == "good")
+{
+    <div class="alert alert-success alert-dismissible fade show">
+        <strong>Success!</strong> New inventory has been added
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+}
+else if ((string)TempData["FailMessage"] == "bad")
+{
+    <div class="alert alert-danger alert-dismissible fade show">
+        <strong>Error!</strong> Either an invalid product ID was entered or Quantity isn't greater than 0, try again
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StoreID" class="control-label"></label>
+                <input asp-for="StoreID" class="form-control" />
+                <span asp-validation-for="StoreID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemID" class="control-label"></label>
+                <input asp-for="ItemID" class="form-control" />
+                <span asp-validation-for="ItemID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

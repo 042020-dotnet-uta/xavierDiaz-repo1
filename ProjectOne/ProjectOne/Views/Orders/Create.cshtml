@@ -9,8 +9,11 @@
 <h4>Order</h4>
 @if (TempData["SuccessMessage"] != null)
 {
-    <p style="color: springgreen">Order is ready! You have @TempData["OrderSize"] items pending. To place order select "Go Back"</p>
-    <p style="color: cornflowerblue">Otherwise add another order</p>
+<div class="alert alert-success alert-dismissible fade show">
+    <strong>Success!</strong> Order is ready! You have @TempData["OrderSize"] items pending. To place order select "Go Back"<br />
+    Otherwise add another order
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
 }
 <hr />
 <div class="row">
