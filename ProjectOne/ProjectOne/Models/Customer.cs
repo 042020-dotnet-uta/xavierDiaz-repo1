@@ -27,6 +27,7 @@ namespace ProjectOne.Models
 		}
 		private string _FName;// --- First name
 		[Required]
+		[Display(Name ="First Name")]
 		public string FName
 		{
 			get
@@ -41,6 +42,7 @@ namespace ProjectOne.Models
 		}
 		private string _LName;// --- Last name
 		[Required]
+		[Display(Name ="Last Name")]
 		public string LName
 		{
 			get
@@ -56,6 +58,7 @@ namespace ProjectOne.Models
 
 		private int _DefaultSto;// --- their default store to get loaded into
 		[Required]
+		[Display(Name ="Default Store")]
 		public int DefaultSto
 		{
 			get

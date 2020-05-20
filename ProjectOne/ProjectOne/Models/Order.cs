@@ -28,6 +28,7 @@ namespace ProjectOne.Models
 		}
 		private int _StoreID;// --- store record
 		[Required]
+		[Display(Name = "Store ID")]
 		public int StoreID
 		{
 			get
@@ -41,6 +42,7 @@ namespace ProjectOne.Models
 		}
 		private int _CustomerID;// --- customer record
 		[Required]
+		[Display(Name = "Customer ID")]
 		public int CustomerID
 		{
 			get
@@ -54,6 +56,7 @@ namespace ProjectOne.Models
 		}
 		private DateTime _SellTime;// --- time order was made
 		[Required]
+		[Display(Name = "Time of Order")]
 		public DateTime SellTime
 		{
 			get
@@ -67,6 +70,7 @@ namespace ProjectOne.Models
 		}
 		private string _SoldItems;// --- string rep of what they bought
 		[Required]
+		[Display(Name = "Product")]
 		public string SoldItems
 		{
 			get

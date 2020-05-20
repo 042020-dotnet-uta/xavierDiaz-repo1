@@ -27,6 +27,7 @@ namespace ProjectOne.Models
 		}
 		private string _PName;// --- Product name
 		[Required]
+		[Display(Name = "Product Name")]
 		public string PName
 		{
 			get
@@ -40,6 +41,7 @@ namespace ProjectOne.Models
 		}
 		private float _PCost;// --- unit cost
 		[Required]
+		[Display(Name = "Unit Cost")]
 		public float PCost
 		{
 			get

@@ -33,6 +33,7 @@ namespace ProjectOne.Models
 		}
 		private int _StoreID;// --- key
 		[Required]
+		[Display(Name ="Store ID")]
 		public int StoreID
 		{
 			get
@@ -46,6 +47,7 @@ namespace ProjectOne.Models
 		}
 		private int _ItemID;// --- key
 		[Required]
+		[Display(Name ="Item ID")]
 		public int ItemID
 		{
 			get
@@ -85,6 +87,21 @@ namespace ProjectOne.Models
 					return true;
 				else
 					return false;
+			}
+		}
+		public void UpdateInventory(Order ord)
+		{
+			using (var db = new ProjectOneContext())
+			{
+				Product p = new Product();
+				int ID = p.GetID(ord.SoldItems);
+				try
+				{
+					var ords = db.Locations
+						.FromSqlInterpolated($"UPDATE Locations SET Quantity = Quantity - {ord.Quantity} WHERE StoreID = {ord.StoreID} AND ItemID = {ID}")
+						.ToList();
+				}
+				catch { }
 			}
 		}
 		public bool IsValidQuantity(int amount, string item, int storeID)

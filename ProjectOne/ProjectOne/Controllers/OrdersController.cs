@@ -173,6 +173,8 @@ namespace ProjectOne.Controllers
             foreach(var o in Orders)
             {
                 _context.Add(o);
+                Location l = new Location();
+                l.UpdateInventory(o);
             }
             _context.SaveChanges();
             Orders.Clear();
