@@ -75,6 +75,9 @@ namespace ProjectOne.Models
 		{
 			//nothing
 		}
+		/// <summary>
+		/// returns bool is customer ID valid
+		/// </summary>
 		public bool IsValidCustomer(int ID)
 		{
 			using (var db = new ProjectOneContext())

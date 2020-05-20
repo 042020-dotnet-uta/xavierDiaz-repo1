@@ -152,6 +152,9 @@ namespace ProjectOne.Controllers
             }
             return View(order);
         }
+        /// <summary>
+        /// checks all input and returns code for any errors
+        /// </summary>
         private int validateOrder(Order order)
         {
             // 0-good | 1-invalid store | 2-invalid customer | 3-invalid Item |4-invalid Quantity
@@ -168,6 +171,9 @@ namespace ProjectOne.Controllers
                 return 4;
             return 0;
         }
+        /// <summary>
+        /// called in Razor to place orders when ready
+        /// </summary>
         public IActionResult addOrders()
         {
             foreach(var o in Orders)

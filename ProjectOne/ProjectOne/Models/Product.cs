@@ -56,7 +56,9 @@ namespace ProjectOne.Models
 		public Product()
 		{
 		}
-
+		/// <summary>
+		/// return true if Product ID valid
+		/// </summary>
 		public bool IsValidProduct(int ID)
 		{
 			using (var db = new ProjectOneContext())
@@ -70,6 +72,9 @@ namespace ProjectOne.Models
 					return false;
 			}
 		}
+		/// <summary>
+		/// uses product name instead for validation
+		/// </summary>
 		public bool IsValidProduct(string product)
 		{
 			using (var db = new ProjectOneContext())
@@ -83,18 +88,29 @@ namespace ProjectOne.Models
 					return false;
 			}
 		}
+		/// <summary>
+		/// return id of a product
+		/// </summary>
 		public int GetID(string item)
 		{
 			using (var db = new ProjectOneContext())
 			{
-				var prods = db.Products
-					.FromSqlInterpolated($"SELECT * FROM Products WHERE PName = {item}")
-					.ToList();
-				foreach(var p in prods)
+				try
 				{
-					return p.ProductID;
+					var prods = db.Products
+						.FromSqlInterpolated($"SELECT * FROM Products WHERE PName = {item}")
+						.ToList();
+					foreach (var p in prods)
+					{
+						return p.ProductID;
+					}
+					return -1;//in case nothing is found
 				}
-				return -1;//in case nothing is found
+				catch
+				{
+					//something went wrong
+					return -10;
+				}
 			}
 		}
 	}

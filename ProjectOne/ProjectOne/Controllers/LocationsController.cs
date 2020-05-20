@@ -83,6 +83,9 @@ namespace ProjectOne.Controllers
             }
             return View(location);
         }
+        /// <summary>
+        /// helps ensure product is valid
+        /// </summary>
         public bool isValidProduct(int pID)
         {
             Product p = new Product();

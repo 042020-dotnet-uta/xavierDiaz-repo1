@@ -75,6 +75,9 @@ namespace ProjectOne.Models
 		public Location()
 		{
 		}
+		/// <summary>
+		/// return true if store ID is valid
+		/// </summary>
 
 		public bool IsValidLocation(int i)
 		{
@@ -89,6 +92,9 @@ namespace ProjectOne.Models
 					return false;
 			}
 		}
+		/// <summary>
+		/// directs program to correct method
+		/// </summary>
 		public void UpdateInventory(Order ord)
 		{
 			using (var db = new ProjectOneContext())
@@ -104,6 +110,9 @@ namespace ProjectOne.Models
 				catch { }
 			}
 		}
+		/// <summary>
+		/// returns false if using too many or less than 1
+		/// </summary>
 		public bool IsValidQuantity(int amount, string item, int storeID)
 		{
 			using (var db = new ProjectOneContext())

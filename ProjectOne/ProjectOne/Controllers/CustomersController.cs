@@ -89,6 +89,9 @@ namespace ProjectOne.Controllers
             }
             return View(customer);
         }
+        /// <summary>
+        /// used to help call store validation
+        /// </summary>
         public bool CheckInp(int store) 
         {
             Location l = new Location();
