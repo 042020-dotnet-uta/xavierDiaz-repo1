@@ -31,6 +31,11 @@ namespace ProjectOne.Controllers
             get { return TempData["OrderSize"] as string; }
             set { TempData["SucessMessage"] = value; }
         }
+        public string Error
+        {
+            get { return TempData["Error"] as string; }
+            set { TempData["Error"] = value; }
+        }
 
         // GET: Orders
         public async Task<IActionResult> Index(string searchString)
@@ -112,15 +117,56 @@ namespace ProjectOne.Controllers
             if (ModelState.IsValid)
             {
                 order.SellTime = DateTime.Now;
-                Orders.Add(order);
-                TempData["OrderSize"] = Orders.Count.ToString();
-                //_context.Add(order);
-                //await _context.SaveChangesAsync();
-                SuccessMessage = "Order Placed";
-                return RedirectToAction("Create");
+                int check = validateOrder(order);
+                if (check == 0)
+                {
+                    Orders.Add(order);
+                    TempData["OrderSize"] = Orders.Count.ToString();
+                    //_context.Add(order);
+                    //await _context.SaveChangesAsync();
+                    SuccessMessage = "Order Placed";
+                    return RedirectToAction("Create");
+                }
+                else if(check == 1)
+                {
+                    TempData["Error"] = "Invalid storeID, try again";
+                    return RedirectToAction("Create");
+                }
+                else if (check == 2)
+                {
+                    TempData["Error"] = "Invalid CustomerID, try again";
+                    return RedirectToAction("Create");
+                }
+                else if (check == 3)
+                {
+                    TempData["Error"] = "Invalid Item, try again";
+                    return RedirectToAction("Create");
+                }
+                else if (check == 4)
+                {
+                    TempData["Error"] = "Either not enough of that item or quantity asked for was smaller than 1";
+                    return RedirectToAction("Create");
+                }
+
                 //return RedirectToAction(nameof(Index));
             }
             return View(order);
+        }
+        private int validateOrder(Order order)
+        {
+            // 0-good | 1-invalid store | 2-invalid customer | 3-invalid Item |4-invalid Quantity
+            Location l = new Location();
+            if (!l.IsValidLocation(order.StoreID))
+                return 1;
+            Customer c = new Customer();
+            if (!c.IsValidCustomer(order.CustomerID))
+                return 2;
+            Product p = new Product();
+            if (!p.IsValidProduct(order.SoldItems))
+                return 3;
+            if (!l.IsValidQuantity(order.Quantity, order.SoldItems, order.StoreID))
+                return 4;
+            return 0;
         }
         public IActionResult addOrders()
         {

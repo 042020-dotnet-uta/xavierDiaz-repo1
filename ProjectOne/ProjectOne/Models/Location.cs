@@ -87,5 +87,28 @@ namespace ProjectOne.Models
 					return false;
 			}
 		}
+		public bool IsValidQuantity(int amount, string item, int storeID)
+		{
+			using (var db = new ProjectOneContext())
+			{
+				if (amount <= 0)
+					return false;
+				Product p = new Product();
+				int pID = p.GetID(item);
+				if (pID == -1)
+					return false;//this shouldn't happen since it checks for valid product before this can be ran anyway
+				var locs = db.Locations
+					.FromSqlInterpolated($"SELECT * FROM Locations WHERE ItemID = {pID} AND StoreID = {storeID}")
+					.ToList();
+				int avail = -1;
+				foreach(var l in locs){
+					avail = l.Quantity;
+				}
+				if (amount > avail)
+					return false;
+				else
+					return true;
+			}
+		}
 	}
 }

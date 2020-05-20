@@ -86,7 +86,7 @@ namespace ProjectOne.Controllers
         public bool isValidProduct(int pID)
         {
             Product p = new Product();
-            return p.isValidProduct(pID);
+            return p.IsValidProduct(pID);
         }
 
         // GET: Locations/Edit/5

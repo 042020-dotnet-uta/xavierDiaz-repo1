@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
+using ProjectOne.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ProjectOne.Models
@@ -68,6 +71,19 @@ namespace ProjectOne.Models
 		public Customer()
 		{
 			//nothing
+		}
+		public bool IsValidCustomer(int ID)
+		{
+			using (var db = new ProjectOneContext())
+			{
+				var custs = db.Customers
+					.FromSqlInterpolated($"SELECT * FROM Customers WHERE CustomerID = {ID}")
+					.ToList();
+				if (custs.Count != 0)
+					return true;
+				else
+					return false;
+			}
 		}
 	}
 }
